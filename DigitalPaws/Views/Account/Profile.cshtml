@@ -1,0 +1,34 @@
+﻿@model DigitalPaws.Models.User
+
+@{
+	ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-4">
+	<h2>Profile</h2>
+	<hr />
+	<form asp-action="Profile" method="post">
+		<input type="hidden" asp-for="Id" />
+		<div class="mb-3">
+			<label asp-for="Name" class="form-label"></label>
+			<input asp-for="Name" class="form-control" />
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Email" class="form-label"></label>
+			<input asp-for="Email" class="form-control" />
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="MobileNumber" class="form-label"></label>
+			<input asp-for="MobileNumber" class="form-control" />
+			<span asp-validation-for="MobileNumber" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Address" class="form-label"></label>
+			<textarea asp-for="Address" class="form-control"></textarea>
+			<span asp-validation-for="Address" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary">Update Profile</button>
+	</form>
+</div>

@@ -8,5 +8,9 @@ namespace DigitalPaws.Controllers
 		{
 			return View();
 		}
+		public IActionResult GeneralChat()
+		{
+			return View();
+		}
 	}
 }

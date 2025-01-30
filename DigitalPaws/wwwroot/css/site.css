@@ -16,3 +16,66 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+.carousel-image {
+    height: 400px; /* Adjust height as needed */
+    object-fit: cover; /* Ensures the image fills the space while maintaining aspect ratio */
+}
+
+.carousel {
+    margin-left: 0; /* Align to the left */
+}
+
+/*.me-2{
+    width: 10px;
+    height: 20px;
+    border-radius: 8px; 
+}*/
+/*.rs-cards-shelf-mainheader, .rs-cards-shelf-secondaryheader {
+    display: inline;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+}
+h2{
+    color: var(--sk-headline-text-color, #1d1d1f);
+    font-weight: 600;
+}
+.rs-cards-shelf-secondaryheader {
+    color: #6e6e73;
+}
+
+.rs-cards-shelf-mainheader, .rs-cards-shelf-secondaryheader {
+    display: inline;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+}
+
+h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + * {
+    margin-top: var(--sk-headline-plus-first-element-margin, .8em);
+}
+
+body, button, input, select, textarea {
+    -moz-font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+}
+
+body {
+    background-color: var(--sk-body-background-color, #fff);
+    color: var(--sk-body-text-color, #1d1d1f);
+    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    line-height: 1.4705882353;
+}*/

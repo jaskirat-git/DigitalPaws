@@ -1,0 +1,60 @@
+﻿@model List<Pet>
+
+@{
+	ViewData["Title"] = "My Pets";
+}
+
+<div class="container mt-4">
+	<h2 class="mb-4">My Pets</h2>
+
+	@if (Model.Any())
+	{
+		<table class="table table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Display Picture</th>
+					<th>Name</th>
+					<th>Category</th>
+					<th>Medical Conditions</th>
+					<th>QR Code</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var pet in Model)
+				{
+					<tr>
+						<td>
+							@if (!string.IsNullOrEmpty(pet.DisplayPictureUrl))
+							{
+								<img src="@pet.DisplayPictureUrl" alt="Pet Picture" width="100" height="100" class="img-thumbnail" />
+							}
+							else
+							{
+								<span class="text-muted">No Picture</span>
+							}
+						</td>
+						<td>@pet.Name</td>
+						<td>@pet.Category</td>
+						<td>@pet.MedicalConditions</td>
+						<td>
+							@if (!string.IsNullOrEmpty(pet.QRCodeUrl))
+							{
+								<img src="@pet.QRCodeUrl" alt="QR Code" width="100" height="100" />
+							}
+							else
+							{
+								<span class="text-muted">No QR Code Available</span>
+							}
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+	else
+	{
+		<p class="text-muted">No pets added yet.</p>
+	}
+
+	<a asp-action="Add" class="btn btn-success mt-3">Add New Pet</a>
+</div>

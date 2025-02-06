@@ -66,8 +66,13 @@ namespace DigitalPaws.Controllers
 
 		private string GenerateQRCode(Pet pet)
 		{
-			// Define the text to encode
-			string qrText = $"Pet Name: {pet.Name}, Owner ID: {pet.OwnerId}";
+			var owner = _context.Users.FirstOrDefault(u => u.Id == pet.OwnerId);
+			if (owner == null)
+			{
+				throw new Exception("Owner not found!");
+			}
+
+			string qrText = $"Pet Name: {pet.Name}, Owner Name: {owner.Name}, Mobile: {owner.MobileNumber}";
 
 			// Create the QR code data with a medium error correction level
 			using (QRCodeGenerator qrGenerator = new QRCodeGenerator())

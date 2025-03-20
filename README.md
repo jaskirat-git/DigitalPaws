@@ -29,3 +29,22 @@ DigitalPaws is a web application built with **ASP.NET Core MVC** that helps pet 
 ```bash
 git clone https://github.com/yourusername/DigitalPaws.git
 cd DigitalPaws
+2️⃣ Configure the Database
+Update the appsettings.json with your SQL Server connection string.
+Run the following command to apply migrations:
+bash
+Copy
+Edit
+dotnet ef database update
+3️⃣ Run the Application
+bash
+Copy
+Edit
+dotnet run
+Open a browser and go to:
+arduino
+Copy
+Edit
+https://localhost:5001
+📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.

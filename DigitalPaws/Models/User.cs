@@ -1,4 +1,5 @@
 ﻿
+using DigitalPaws.Validations;
 using System.ComponentModel.DataAnnotations;
 
 namespace DigitalPaws.Models
@@ -22,16 +23,18 @@ namespace DigitalPaws.Models
 
 		[Required(ErrorMessage = "Email is required.")]
 		[DataType(DataType.EmailAddress)]
+		[EmailValidation]
 		[StringLength(100, ErrorMessage = "Email cannot exceed 100 characters.")]
 		public string Email { get; set; }
 
 		[Required(ErrorMessage = "Mobile number is required.")]
+		[PhoneValidation]
 		[RegularExpression(@"^\+?[1-9]\d{1,14}$", ErrorMessage = "Invalid mobile number format.")]
-		public string MobileNumber { get; set; } // New field
+		public string MobileNumber { get; set; }
 
 		[Required(ErrorMessage = "Address is required.")]
 		[StringLength(200, ErrorMessage = "Address cannot exceed 200 characters.")]
-		public string Address { get; set; } // New field
+		public string Address { get; set; }
 
 		public string Role { get; set; } = "User";
 	}

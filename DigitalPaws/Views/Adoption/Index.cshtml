@@ -1,0 +1,96 @@
+﻿@model DigitalPaws.Models.ViewModels.SearchViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2 class="text-center">AdoptionList</h2>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Sidebar for Filters and Sorting -->
+        <aside class="col-md-3 col-lg-2">
+            <h4>Filters</h4>
+
+            <!-- Search Form -->
+            <form class="form-control" method="get" asp-action="Index">
+                <div class="form-group">
+                    <label class="col-form-label-lg" for="searchTerm">Search</label>
+                    <input class="input-group" type="text" id="searchTerm" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search for pets..." />
+                </div>
+
+                <!-- Filter by Genre -->
+                @* <h5>Genre</h5> *@
+                @* <div class="list-group mb-3"> *@
+                @*     <a asp-action="Index" asp-route-genre="" class="list-group-item list-group-item-action @(string.IsNullOrEmpty(Model.SelectedGenre) ? "active" : "")">All Genres</a> *@
+                @*     @foreach (var genre in Model.Genres) *@
+                @*     { *@
+                @*         <a asp-action="Index" asp-route-genre="@genre" class="list-group-item list-group-item-action @(genre == Model.SelectedGenre ? "active" : "")"> *@
+                @*             @genre *@
+                @*         </a> *@
+                @*     } *@
+                @* </div> *@
+
+                <!--Filter by Avability-->
+                <h5>Filter by Availability</h5>
+                <div class="list-group mb-3">
+                    <a asp-action="Index" asp-route-availability="" class="list-group-item @(Model.IsAvailable == null ? "active" : "")">All</a>
+                    <a asp-action="Index" asp-route-availability="available" class="list-group-item @(Model.IsAvailable = true ? "active" : "")">Available</a>
+                    <a asp-action="Index" asp-route-availability="unavailable" class="list-group-item @(Model.IsAvailable = false ? "active" : "")">Unavailable</a>
+                </div>
+
+
+
+                <!-- Sort Options -->
+                <h5>Sort By</h5>
+                <div class="list-group mb-3">
+                    <a asp-action="Index" asp-route-sortBy="name" class="list-group-item list-group-item-action @(Model.SortBy == "name" ? "active" : "")">Name</a>
+                    <a asp-action="Index" asp-route-sortBy="breed" class="list-group-item list-group-item-action @(Model.SortBy == "breed" ? "active" : "")">Breed</a>
+                    @* <a asp-action="Index" asp-route-sortBy="year" class="list-group-item list-group-item-action @(Model.SortBy == "year" ? "active" : "")">Year</a> *@
+                </div>
+
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+            </form>
+        </aside>
+        
+
+
+
+        <!-- Main Content Area for Book Results -->
+        <main class="col-md-9 col-lg-10">
+            <h2>Search Results</h2>
+
+            @if (Model.AdoptionModels.Count == 0)
+            {
+                <p>No Pet found.</p>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var book in Model.AdoptionModels)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100">
+                                <img src="@book.ImageUrl" class="card-img-top" alt="Pet Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">@book.Name</h5>
+                                    <p class="card-text">
+                                        <strong>Breed:</strong> @book.Breed <br />
+                                        @* <strong>Genre:</strong> @book.Genre?.GenreName  <br /> *@
+                                        @* <strong>Year:</strong> @book.Year<br /> *@
+                                        <strong>Availability:</strong>@(book.IsAvailable ? "Pet IS AVAILABLE" : "Pet IS NOT AVAILABLE")<br />
+                                        <strong>Owner:</strong>@(book.Owner)<br/>
+										<strong>Contact:</strong>@(book.Contact)<br />
+										<strong>Price:</strong>@(book.Price)<br />
+                                        <a class="btn btn-dark btn-sm" asp-action="Details" asp-controller="Adoption" asp-route-id="@book.Id">Adopt Now</a>
+                                        @* <a class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="Book" asp-route-id="@book.Id">Delete</a> *@
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </main>
+    </div>
+</div>

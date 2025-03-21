@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1 class="text-center">Book List</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Pet Name</th>
+            <th>Breed Name</th>
+            <th>Owner</th>
+            <th>Price</th>
+            @* <th>Genre</th> *@
+            @* <th>GenreId</th> *@
+            @* <th>Year</th> *@
+            <th>Available</th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var items in Model)
+        {
+            <tr>
+                <td>@items.Name</td>
+                <td>@items.Breed</td>
+                <td>@items.Owner</td>
+				<td>@items.Price</td>
+                @* <td>@items.GenreName</td> *@
+                @* <td>@items.GenreId</td> *@
+                @* <td>@items.Year</td> *@
+                <td>@items.IsAvailable</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@items.Id" class="btn btn-info btn-sm">Details</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    @* <tr> *@
+    @*     <a asp-controller="Adoption" asp-action="Index" class="btn btn-primary">ADD NEW</a> *@
+    @* </tr> *@
+</table>

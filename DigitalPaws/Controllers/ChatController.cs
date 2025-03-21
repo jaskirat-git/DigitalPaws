@@ -14,8 +14,7 @@ namespace DigitalPaws.Controllers
 	public class ChatController : Controller
 	{
 		private readonly HttpClient _httpClient;
-		//private readonly string _apiKey = "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"; //my
-		private readonly string _apiKey = "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"; // india
+		private readonly string _apiKey = Environment.GetEnvironmentVariable("API_KEY", EnvironmentVariableTarget.User);
 
 		public ChatController(IHttpClientFactory httpClientFactory)
 		{

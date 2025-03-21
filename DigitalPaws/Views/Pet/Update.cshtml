@@ -1,0 +1,45 @@
+﻿@model DigitalPaws.Models.Pet
+
+@{
+	ViewData["Title"] = "Update Pet";
+}
+
+<h2 class="text-center">Update Pet Details</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+	<div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form asp-action="Update" method="post" enctype="multipart/form-data">
+	<input type="hidden" asp-for="Id" />
+
+	<div class="mb-3">
+		<label class="form-label">Pet Name</label>
+		<input asp-for="Name" class="form-control" required />
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Category</label>
+		<select asp-for="Category" class="form-control">
+			@foreach (var category in ViewBag.Categories)
+			{
+				<option value="@category">@category</option>
+			}
+		</select>
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Medical Conditions</label>
+		<textarea asp-for="MedicalConditions" class="form-control"></textarea>
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Upload New Display Picture (Optional)</label>
+		<input type="file" name="DisplayPictureUrl" class="form-control" />
+	</div>
+
+	<button type="submit" class="btn btn-primary w-100">Update Pet</button>
+</form>
+
+<a href="@Url.Action("ViewPets", "Pet")" class="btn btn-secondary mt-3">Back to My Pets</a>

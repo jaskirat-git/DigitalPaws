@@ -90,7 +90,7 @@ namespace DigitalPaws.Controllers
 			{
 				return NotFound();
 			}
-
+			TempData["SuccessMessage"] = $"Welcome {user.Name}";
 			return View(user);
 		}
 

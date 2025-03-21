@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Book_Management_Application.Validations
+namespace DigitalPaws.Validations
 {
 
 	public class PhoneValidation : ValidationAttribute

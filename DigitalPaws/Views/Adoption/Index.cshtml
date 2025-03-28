@@ -4,16 +4,78 @@
 *@
 @{
 }
-<h2 class="text-center">AdoptionList</h2>
+<style>
+    body {
+        background: linear-gradient(to right, #1cc88a, #2575fc);
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+        }
+        .form-control:focus {
+        border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+        }
+        .btn-primary {
+        background-color: #2575fc;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #4c0f91;
+        }
+        .btn-dark {
+            background-color: #343a40;
+            border: none;
+        }
+        .btn-dark:hover {
+            background-color: #23272b;
+        }
+        .btn-sm {
+            font-size: 0.875rem;
+        }
+        #sidebar {
+            background-color: lightgray;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .list-group-item.active {
+        background-color: #2575fc;
+            color: white;
+        }
+        .card-body {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .card-img-top {
+            border-radius: 10px;
+        }
+        .text-muted {
+            font-size: 1rem;
+        }
+
+    footer {
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 0;
+        background: white;
+        color: black;
+        font-size: 0.9rem;
+    }
+    </style>
+@* <h2 class="text-center">AdoptionList</h2> *@
 
 <div class="container-fluid mt-4">
     <div class="row">
         <!-- Sidebar for Filters and Sorting -->
         <aside class="col-md-3 col-lg-2">
-            <h4>Filters</h4>
+           @*  <h4>Filters</h4> *@
 
             <!-- Search Form -->
-            <form class="form-control" method="get" asp-action="Index">
+            <form id="sidebar" class="form-control" method="get" asp-action="Index">
                 <div class="form-group">
                     <label class="col-form-label-lg" for="searchTerm">Search</label>
                     <input class="input-group" type="text" id="searchTerm" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search for pets..." />
@@ -30,6 +92,7 @@
                 @*         </a> *@
                 @*     } *@
                 @* </div> *@
+
 
                 <!--Filter by Avability-->
                 <h5>Filter by Availability</h5>
@@ -58,7 +121,7 @@
 
         <!-- Main Content Area for Book Results -->
         <main class="col-md-9 col-lg-10">
-            <h2>Search Results</h2>
+           @*  <h2>Search Results</h2> *@
 
             @if (Model.AdoptionModels.Count == 0)
             {
@@ -69,8 +132,8 @@
                 <div class="row">
                     @foreach (var book in Model.AdoptionModels)
                     {
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card h-100">
+                        <div id="card" class="col-md-6 col-lg-4 mb-4">
+                            <div  class="card h-100">
                                 <img src="@book.ImageUrl" class="card-img-top" alt="Pet Image">
                                 <div class="card-body">
                                     <h5 class="card-title">@book.Name</h5>

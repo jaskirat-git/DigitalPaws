@@ -165,6 +165,83 @@ namespace DigitalPaws.Migrations
                             Name = "Timmy",
                             Owner = "Dexter",
                             Price = "$1000"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Breed = "British Short Haired",
+                            Contact = "8916457690",
+                            ImageUrl = "/images/britis.jpeg",
+                            IsAvailable = true,
+                            Name = "Tom",
+                            Owner = "Kelly",
+                            Price = "$500"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Breed = "Bombay",
+                            Contact = "4381237690",
+                            ImageUrl = "/images/Bombay.jpg",
+                            IsAvailable = false,
+                            Name = "Charmy",
+                            Owner = "Alize",
+                            Price = "$650"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Breed = "American Curl",
+                            Contact = "7651237694",
+                            ImageUrl = "/images/AmericanCurl.jpg",
+                            IsAvailable = true,
+                            Name = "Chase",
+                            Owner = "Jeremy",
+                            Price = "$550"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Breed = "Somali",
+                            Contact = "4321247634",
+                            ImageUrl = "/images/somali.jpg",
+                            IsAvailable = true,
+                            Name = "Candy",
+                            Owner = "Casey",
+                            Price = "$450"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Breed = "Albino Budgerigar",
+                            Contact = "8321247635",
+                            ImageUrl = "/images/bud.jpg",
+                            IsAvailable = true,
+                            Name = "Cane",
+                            Owner = "Kate",
+                            Price = "$450"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Breed = "Ring Neck Parakeet",
+                            Contact = "9321287635",
+                            ImageUrl = "/images/ring.jpg",
+                            IsAvailable = true,
+                            Name = "Honey",
+                            Owner = "Shelly",
+                            Price = "$450"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Breed = "Scarlet Macaw",
+                            Contact = "5321287635",
+                            ImageUrl = "/images/macaw.jpg",
+                            IsAvailable = false,
+                            Name = "Andrei",
+                            Owner = "Seth",
+                            Price = "$450"
                         });
                 });
 

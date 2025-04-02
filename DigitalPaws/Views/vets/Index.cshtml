@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Nearby Vets";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Nearby Veterinary Clinics</h2>
+
+    @if (ViewBag.Vets != null && ViewBag.Vets.Count > 0)
+    { 
+        <div class="row">
+            @foreach (var vet in ViewBag.Vets)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@vet["name"]</h5>
+                            <p class="card-text">
+                                <strong>Address:</strong> @vet["vicinity"] <br />
+                                <strong>Rating:</strong> @(vet["rating"] ?? "N/A") ⭐
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-danger">❌ No nearby vets found.</p>
+    }
+</div>
+
+
+
+

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Adoption\AdoptionList.cshtml" />
+    <None Include="Views\Adoption\Details.cshtml" />
+    <None Include="Views\Adoption\Index.cshtml" />
+    <None Include="wwwroot\images\Doby.jpg!d" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>

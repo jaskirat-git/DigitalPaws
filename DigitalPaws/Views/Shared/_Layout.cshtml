@@ -46,8 +46,12 @@
 							<a class="nav-link text-primary fw-bold px-3 py-2 rounded shadow-sm" asp-controller="Adoption" asp-action="Index"><i class="fas fa-paw me-2"></i>Adoption</a>
 						</li>
 						<li class="nav-item">
+							<a asp-controller="Vets" asp-action="Index" class="nav-link text-primary fw-bold px-3 py-2 rounded shadow-sm">Find Nearby Vets</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link text-danger fw-bold px-3 py-2 rounded shadow-sm" asp-controller="Account" asp-action="Logout">Logout</a>
 						</li>
+						
 					}
 					else
 					{
@@ -67,6 +71,7 @@
 								<i class="fas fa-comments me-2"></i>Chatbox
 							</a>
 						</li>
+
 					}
 				</ul>
 			</div>

@@ -1,4 +1,5 @@
 using DigitalPaws.Models;
+using DigitalPaws.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<DigitalPawsContext>(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<GooglePlacesService>();
 
 builder.Services.AddSession(options =>
 {

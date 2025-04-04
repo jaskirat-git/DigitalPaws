@@ -3,6 +3,7 @@
 @{
 	ViewData["Title"] = "Pet Adoption List";
 }
+<<<<<<< HEAD
 
 <style>
 	/* General Styles */
@@ -110,6 +111,84 @@
 					<label class="col-form-label-lg text-dark" for="searchTerm">Search</label>
 					<input type="text" id="searchTerm" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search for pets..." />
 				</div>
+=======
+<style>
+    body {
+        background: linear-gradient(to right, #1cc88a, #2575fc);
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+        }
+        .form-control:focus {
+        border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+        }
+        .btn-primary {
+        background-color: #2575fc;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #4c0f91;
+        }
+        .btn-dark {
+            background-color: #343a40;
+            border: none;
+        }
+        .btn-dark:hover {
+            background-color: #23272b;
+        }
+        .btn-sm {
+            font-size: 0.875rem;
+        }
+        #sidebar {
+            background-color: lightgray;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .list-group-item.active {
+        background-color: #2575fc;
+            color: white;
+        }
+        .card-body {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .card-img-top {
+            border-radius: 10px;
+        }
+        .text-muted {
+            font-size: 1rem;
+        }
+
+    footer {
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 0;
+        background: white;
+        color: black;
+        font-size: 0.9rem;
+    }
+    </style>
+@* <h2 class="text-center">AdoptionList</h2> *@
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Sidebar for Filters and Sorting -->
+        <aside class="col-md-3 col-lg-2">
+           @*  <h4>Filters</h4> *@
+
+            <!-- Search Form -->
+            <form id="sidebar" class="form-control" method="get" asp-action="Index">
+                <div class="form-group">
+                    <label class="col-form-label-lg" for="searchTerm">Search</label>
+                    <input class="input-group" type="text" id="searchTerm" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search for pets..." />
+                </div>
+>>>>>>> eae9b4be11ba411a4318045b8d01ad1211f846f2
 
 				<!-- Filter by Availability -->
 				<h5 class="mt-3 text-dark">Availability</h5>
@@ -119,12 +198,23 @@
 					<a asp-action="Index" asp-route-availability="unavailable" class="list-group-item @(Model.IsAvailable = false ? "active" : "")">Unavailable</a>
 				</div>
 
+<<<<<<< HEAD
 				<!-- Sort Options -->
 				<h5 class="text-dark">Sort By</h5>
 				<div class="list-group mb-3">
 					<a asp-action="Index" asp-route-sortBy="name" class="list-group-item @(Model.SortBy == "name" ? "active" : "")">Name</a>
 					<a asp-action="Index" asp-route-sortBy="breed" class="list-group-item @(Model.SortBy == "breed" ? "active" : "")">Breed</a>
 				</div>
+=======
+
+                <!--Filter by Avability-->
+                <h5>Filter by Availability</h5>
+                <div class="list-group mb-3">
+                    <a asp-action="Index" asp-route-availability="" class="list-group-item @(Model.IsAvailable == null ? "active" : "")">All</a>
+                    <a asp-action="Index" asp-route-availability="available" class="list-group-item @(Model.IsAvailable = true ? "active" : "")">Available</a>
+                    <a asp-action="Index" asp-route-availability="unavailable" class="list-group-item @(Model.IsAvailable = false ? "active" : "")">Unavailable</a>
+                </div>
+>>>>>>> eae9b4be11ba411a4318045b8d01ad1211f846f2
 
 				<button type="submit" class="btn btn-primary w-100">Apply Filters</button>
 			</form>
@@ -152,6 +242,7 @@
 										<strong>Breed:</strong> @pet.Breed <br />
 										<strong>Availability:</strong> @Html.Raw(pet.IsAvailable ? "<span class='text-success'>Available</span>" : "<span class='text-danger'>Not Available</span>")<br />
 
+<<<<<<< HEAD
 										<strong>Owner:</strong> @pet.Owner <br />
 										<strong>Contact:</strong> @pet.Contact <br />
 										<strong>Price:</strong> <span class="text-primary">@pet.Price</span> <br />
@@ -165,6 +256,52 @@
 			}
 		</main>
 	</div>
+=======
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+            </form>
+        </aside>
+        
+
+
+
+        <!-- Main Content Area for Book Results -->
+        <main class="col-md-9 col-lg-10">
+           @*  <h2>Search Results</h2> *@
+
+            @if (Model.AdoptionModels.Count == 0)
+            {
+                <p>No Pet found.</p>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var book in Model.AdoptionModels)
+                    {
+                        <div id="card" class="col-md-6 col-lg-4 mb-4">
+                            <div  class="card h-100">
+                                <img src="@book.ImageUrl" class="card-img-top" alt="Pet Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">@book.Name</h5>
+                                    <p class="card-text">
+                                        <strong>Breed:</strong> @book.Breed <br />
+                                        @* <strong>Genre:</strong> @book.Genre?.GenreName  <br /> *@
+                                        @* <strong>Year:</strong> @book.Year<br /> *@
+                                        <strong>Availability:</strong>@(book.IsAvailable ? "Pet IS AVAILABLE" : "Pet IS NOT AVAILABLE")<br />
+                                        <strong>Owner:</strong>@(book.Owner)<br/>
+										<strong>Contact:</strong>@(book.Contact)<br />
+										<strong>Price:</strong>@(book.Price)<br />
+                                        <a class="btn btn-dark btn-sm" asp-action="Details" asp-controller="Adoption" asp-route-id="@book.Id">Adopt Now</a>
+                                        @* <a class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="Book" asp-route-id="@book.Id">Delete</a> *@
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </main>
+    </div>
+>>>>>>> eae9b4be11ba411a4318045b8d01ad1211f846f2
 </div>
 
 <footer>
